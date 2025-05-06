@@ -1,0 +1,75 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // Define assets path
+  String get assets => 'assets/images/ayam.jpg';
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          leading: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          backgroundColor: const Color.fromARGB(255, 100, 69, 34),
+          title: const Text(
+            "Ayam Bakar Taliwang",
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.food_bank, color: Colors.white),
+              onPressed: () {
+      
+                print("Food Bank icon pressed!");
+              },
+            ),
+          ],
+        ),
+        body: Stack(
+          children: [
+            Image.asset(
+              'assets/image/ayam.jpg', 
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+       
+            Positioned(
+              bottom: 20, 
+              left: 10,
+              right: 10,
+              child: Container(
+                color: Colors.white.withOpacity(1), 
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.menu_book, 
+                      color: Color.fromARGB(255, 100, 69, 34),
+                    ),
+                    const SizedBox(width: 10),
+                    const Expanded(
+                      child: Text(
+                        "Ayam Taliwang adalah hidangan ayam bakar khas Lombok, Nusa Tenggara Barat (NTB), yang terkenal dengan cita rasanya yang pedas, gurih, dan sedikit manis. Bahan utama ayam taliwang adalah ayam kampung muda yang dibakar, lalu dibumbui dengan bumbu khas yang terdiri dari cabai merah kering, bawang merah, bawang putih, tomat, terasi goreng, kencur, gula merah, dan garam. ",
+                        style: TextStyle(color: Colors.black, fontSize: 16),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ), // Scaffold
+    ); // MaterialApp
+  }
+}
